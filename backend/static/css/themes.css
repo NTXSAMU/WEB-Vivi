@@ -1,0 +1,33 @@
+/* themes.css — tema claro alternativo.
+   theme.js conmuta el atributo data-theme en <html> y lo persiste. */
+
+[data-theme="light"] {
+  --color-bg: #F6F5F2;
+  --color-bg-alt: #EFEDE8;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F0EEE9;
+  --color-border: #E1DED6;
+
+  --color-text: #1A1C22;
+  --color-text-muted: #565B66;
+  --color-text-faint: #8A8F99;
+
+  --color-accent: #C97A2E;
+  --color-accent-strong: #A8631F;
+  --color-secondary: #3555D6;
+
+  --shadow-soft: 0 8px 30px rgba(20, 20, 20, 0.08);
+  --glow-accent: 0 0 30px rgba(201, 122, 46, 0.18);
+}
+
+[data-theme="light"] .btn--primary {
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .navbar.is-scrolled {
+  background: rgba(246, 245, 242, 0.85);
+}
+
+[data-theme="light"] .preloader {
+  background: var(--color-bg);
+}

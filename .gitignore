@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.env
+
+# Flask
+instance/
+.flask_session/
+
+# Base de datos (se genera con database/migrations, no se versiona)
+database/*.db
+database/backups/*
+!database/backups/.gitkeep
+
+# Node / frontend (por si se añade tooling en el futuro)
+node_modules/
+dist/
+build/
+
+# C++
+cpp/build/*
+!cpp/build/.gitkeep
+*.o
+*.obj
+*.exe
+
+# Editor / SO
+.DS_Store
+Thumbs.db
+*.log
+
+# Assets pesados (opcional: descomenta si no quieres versionarlos en git)
+# assets/videos/**/*.mp4
+# assets/music/**/*.mp3
+
+# VSCode local (dejamos la config compartida, ignoramos la de usuario)
+.vscode/*.local.json

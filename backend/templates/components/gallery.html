@@ -1,0 +1,21 @@
+<section class="section section--muted" id="gallery">
+  <div class="section__inner">
+    <p class="eyebrow">// galería</p>
+    <h2 class="section__title">Fragmentos visuales</h2>
+
+    <div class="gallery__grid reveal-up" id="galleryGrid">
+      {% if gallery_images %}
+        {% for image in gallery_images %}
+        <button class="gallery__item" type="button" data-full="{{ image.url }}">
+          <img src="{{ image.url }}" alt="{{ image.filename }}" loading="lazy">
+        </button>
+        {% endfor %}
+      {% else %}
+        <p class="gallery__empty">
+          Aún no hay imágenes en <code>backend/static/images</code>.
+          Añade archivos ahí y aparecerán automáticamente aquí.
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</section>

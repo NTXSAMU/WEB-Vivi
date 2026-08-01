@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Mi Landing{% endblock %}</title>
+  <meta name="description" content="{% block description %}Portfolio personal — proyectos, galería y contacto.{% endblock %}">
+
+  <!-- Tipografía: Space Grotesk (display) + Inter (texto) + JetBrains Mono (utilitaria) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="{{ url_for('static', filename='icons/favicon.svg') }}" type="image/svg+xml">
+
+  <!-- CSS: el orden importa (reset -> variables -> base -> componentes -> animaciones -> responsive -> temas) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/themes.css') }}">
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <span class="preloader__glyph">&lt;/&gt;</span>
+  </div>
+
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  {% include "components/navbar.html" %}
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "components/footer.html" %}
+
+  <!-- JS: main.js es un módulo ES que importa (utils, api, loader, theme, navbar,
+       scroll, cursor, particles, gallery, music, animations, contact y modules/*).
+       Un único entry point evita listeners duplicados y usa import/export nativo. -->
+  <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

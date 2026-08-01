@@ -1,0 +1,18 @@
+<!-- Fragmento de referencia (HTML estático). La versión viva es
+     backend/templates/components/gallery.html, que además lista imágenes
+     dinámicamente desde backend/static/images vía Jinja2. -->
+<section class="section section--muted" id="gallery">
+  <div class="section__inner">
+    <p class="eyebrow">// galería</p>
+    <h2 class="section__title">Fragmentos visuales</h2>
+    <div class="gallery__grid reveal-up" id="galleryGrid">
+      <!-- Cada item real sigue este patrón (botón + imagen + data-full para el lightbox): -->
+      <!--
+      <button class="gallery__item" type="button" data-full="ruta/a/imagen-grande.jpg">
+        <img src="ruta/a/miniatura.jpg" alt="Descripción" loading="lazy">
+      </button>
+      -->
+      <p class="gallery__empty">Añade imágenes en <code>assets/images/gallery</code>.</p>
+    </div>
+  </div>
+</section>

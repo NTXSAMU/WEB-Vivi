@@ -1,0 +1,4 @@
+# Dependencias a nivel de proyecto (herramientas de scripts/, no del backend).
+# Las dependencias del servidor Flask viven en backend/requirements.txt
+Pillow==10.4.0        # scripts/optimize_images.py
+pydub==0.25.1          # scripts/compress_audio.py
