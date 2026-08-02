@@ -1,0 +1,72 @@
+name: Deploy GitHub Pages
+
+# Publica la versión estática del sitio (frontend/) en GitHub Pages
+# cada vez que hay un push a main. El backend Flask (backend/) NO se
+# despliega aquí: GitHub Pages solo sirve archivos estáticos.
+#
+# Requisito único en el repo: Settings → Pages → Build and deployment
+# → Source: "GitHub Actions" (no "Deploy from a branch").
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Preparar el sitio estático
+        run: |
+          set -e
+          mkdir -p site
+
+          # frontend/pages/index.html pasa a ser la raíz del sitio publicado
+          cp frontend/pages/index.html site/index.html
+
+          # Reescribe las rutas relativas (pensadas para frontend/pages/) a rutas
+          # relativas a la nueva raíz del sitio
+          sed -i 's#\.\./\.\./assets/#./assets/#g; s#\.\./css/#./css/#g; s#\.\./js/#./js/#g' site/index.html
+
+          cp -r frontend/css site/css
+          cp -r frontend/js site/js
+
+          mkdir -p site/assets/images/icons
+          cp assets/images/icons/favicon.svg site/assets/images/icons/favicon.svg
+
+          # Copia el resto de assets públicos si existen (galería, etc.)
+          if [ -d assets/images ]; then cp -r assets/images site/assets/; fi
+
+          # Evita que GitHub Pages procese el sitio con Jekyll
+          touch site/.nojekyll
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
