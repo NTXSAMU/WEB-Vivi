@@ -1,31 +1,31 @@
-/* variables.css — sistema de diseño
-   Tema por defecto: oscuro (tinta nocturna + ámbar/índigo).
+/* variables.css — sistema de diseño romántico.
+   Tema por defecto: oscuro, íntimo (vino/berenjena + rosa/dorado).
    El tema claro se sobreescribe en themes.css bajo [data-theme="light"]. */
 
 :root {
   /* --- Color: superficie --- */
-  --color-bg: #0B0E14;
-  --color-bg-alt: #0F131C;
-  --color-surface: #131826;
-  --color-surface-alt: #1A2130;
-  --color-border: #232B3D;
+  --color-bg: #1A1116;
+  --color-bg-alt: #21151C;
+  --color-surface: #2A1B24;
+  --color-surface-alt: #33212C;
+  --color-border: #3D2530;
 
   /* --- Color: texto --- */
-  --color-text: #E7E9EE;
-  --color-text-muted: #8B93A7;
-  --color-text-faint: #5B6577;
+  --color-text: #F5E9EC;
+  --color-text-muted: #C9A8B5;
+  --color-text-faint: #8C6B76;
 
   /* --- Color: acento (firma de la marca) --- */
-  --color-accent: #F2B138;       /* ámbar — el acento cálido, la "luz de linterna" */
-  --color-accent-strong: #FFCE66;
-  --color-secondary: #4C6EF5;    /* índigo eléctrico — interacción / enlaces */
-  --color-success: #3DD68C;
-  --color-danger: #F2555A;
+  --color-accent: #E8A0BA;       /* rosa/blush — el acento cálido */
+  --color-accent-strong: #F2B8CC;
+  --color-secondary: #D4AF6A;    /* dorado — el segundo tono, "rose gold" */
+  --color-success: #8FD3A6;
+  --color-danger: #E8767B;
 
   /* --- Tipografía --- */
-  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-display: "Playfair Display", "Georgia", serif;
   --font-body: "Inter", "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", "SFMono-Regular", monospace;
+  --font-script: "Caveat", cursive;
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
@@ -34,7 +34,8 @@
   --fs-xl: 1.5rem;
   --fs-2xl: 2rem;
   --fs-3xl: 2.75rem;
-  --fs-4xl: clamp(2.75rem, 6vw, 4.5rem);
+  --fs-4xl: clamp(2.75rem, 6vw, 4.75rem);
+  --fs-script-lg: clamp(1.75rem, 3.5vw, 2.5rem);
 
   /* --- Espaciado --- */
   --space-2xs: 0.25rem;
@@ -48,8 +49,8 @@
   /* --- Layout --- */
   --container-width: 1120px;
   --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
   --radius-full: 999px;
 
   /* --- Movimiento --- */
@@ -60,11 +61,12 @@
 
   /* --- Sombra / resplandor --- */
   --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.35);
-  --glow-accent: 0 0 40px rgba(242, 177, 56, 0.25);
+  --glow-accent: 0 0 40px rgba(232, 160, 186, 0.28);
 
   /* --- Z-index --- */
   --z-cursor: 9999;
   --z-preloader: 9998;
+  --z-gate: 9997;
   --z-navbar: 500;
   --z-modal: 700;
 }

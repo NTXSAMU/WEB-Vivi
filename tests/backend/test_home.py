@@ -1,4 +1,4 @@
-"""Tests básicos de las rutas de página (backend/routes/home.py)."""
+"""Tests básicos de la página principal (backend/routes/home.py)."""
 import sys
 from pathlib import Path
 
@@ -21,6 +21,27 @@ def test_index_status_ok(client):
     assert response.status_code == 200
 
 
-def test_index_contains_hero(client):
-    response = client.get("/")
-    assert b"hero" in response.data
+def test_index_contains_all_sections(client):
+    body = client.get("/").get_data(as_text=True)
+    for section_id in [
+        "hero", "carta", "playlist", "notas",
+        "para-ti", "planes", "recuerdos", "fotos", "juego",
+    ]:
+        assert f'id="{section_id}"' in body
+
+
+def test_index_contains_noindex(client):
+    """La página es privada: no debe indexarse en buscadores."""
+    body = client.get("/").get_data(as_text=True)
+    assert "noindex" in body
+
+
+def test_playlist_tracks_are_rendered(client):
+    body = client.get("/").get_data(as_text=True)
+    assert body.count('data-index="') > 0
+
+
+def test_health_endpoint(client):
+    response = client.get("/api/health")
+    assert response.status_code == 200
+    assert response.get_json()["status"] == "ok"

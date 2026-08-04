@@ -1,0 +1,20 @@
+<section class="section" id="fotos">
+  <div class="section__inner">
+    <p class="eyebrow">// fotos</p>
+    <h2 class="section__title">Fotos sueltas</h2>
+
+    <div class="gallery__grid reveal-up" id="galleryGrid">
+      {% if photos %}
+        {% for photo in photos %}
+        <button class="gallery__item lightbox-trigger" type="button" data-full="{{ photo.url }}">
+          <img src="{{ photo.url }}" alt="{{ photo.filename }}" loading="lazy">
+        </button>
+        {% endfor %}
+      {% else %}
+        <p class="gallery__empty">
+          Añade fotos en <code>backend/static/images</code> y aparecerán aquí solas.
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</section>

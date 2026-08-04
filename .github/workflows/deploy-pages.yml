@@ -1,11 +1,16 @@
 name: Deploy GitHub Pages
 
-# Publica la versión estática del sitio (frontend/) en GitHub Pages
-# cada vez que hay un push a main. El backend Flask (backend/) NO se
-# despliega aquí: GitHub Pages solo sirve archivos estáticos.
+# Publica el sitio en GitHub Pages en cada push a main.
+# scripts/freeze.py renderiza la app Flask (backend/) a HTML estático --
+# es la única fuente de verdad: no hay que mantener un mirror aparte.
 #
 # Requisito único en el repo: Settings → Pages → Build and deployment
 # → Source: "GitHub Actions" (no "Deploy from a branch").
+#
+# Nota de tamaño: el repo incluye ~45 canciones (~134 MB en total,
+# recomprimidas a 128kbps). GitHub Pages soporta sitios de hasta 1 GB,
+# así que vamos sobrados, pero ten en cuenta que el repo pesa por eso
+# más que un proyecto típico.
 
 on:
   push:
@@ -28,29 +33,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Preparar el sitio estático
-        run: |
-          set -e
-          mkdir -p site
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-          # frontend/pages/index.html pasa a ser la raíz del sitio publicado
-          cp frontend/pages/index.html site/index.html
+      - name: Instalar dependencias del backend
+        run: pip install -r backend/requirements.txt
 
-          # Reescribe las rutas relativas (pensadas para frontend/pages/) a rutas
-          # relativas a la nueva raíz del sitio
-          sed -i 's#\.\./\.\./assets/#./assets/#g; s#\.\./css/#./css/#g; s#\.\./js/#./js/#g' site/index.html
-
-          cp -r frontend/css site/css
-          cp -r frontend/js site/js
-
-          mkdir -p site/assets/images/icons
-          cp assets/images/icons/favicon.svg site/assets/images/icons/favicon.svg
-
-          # Copia el resto de assets públicos si existen (galería, etc.)
-          if [ -d assets/images ]; then cp -r assets/images site/assets/; fi
-
-          # Evita que GitHub Pages procese el sitio con Jekyll
-          touch site/.nojekyll
+      - name: Congelar el sitio a HTML estático
+        run: python scripts/freeze.py site
 
       - name: Configurar Pages
         uses: actions/configure-pages@v5

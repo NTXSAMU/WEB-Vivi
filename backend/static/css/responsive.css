@@ -2,20 +2,16 @@
    aquí concentramos los ajustes por tamaño de pantalla. */
 
 @media (max-width: 900px) {
-  .about__grid {
+  .playlist {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
   }
 
-  .about__facts {
-    border-left: none;
-    border-top: 1px solid var(--color-border);
-    padding-left: 0;
-    padding-top: var(--space-md);
+  .playlist__player {
+    position: static;
   }
 
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
+  .notes__grid {
+    columns: 2 220px;
   }
 }
 
@@ -60,8 +56,24 @@
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  .cards {
-    grid-template-columns: 1fr;
+  .notes__grid {
+    columns: 1;
+  }
+
+  .likes__panel {
+    max-width: none;
+  }
+
+  .timeline {
+    padding-left: var(--space-md);
+  }
+
+  .timeline__marker {
+    left: calc(var(--space-md) * -1 - 5px);
+  }
+
+  .timeline__image {
+    width: 120px;
   }
 
   .footer__inner {
@@ -79,5 +91,14 @@
   .btn {
     justify-content: center;
     width: 100%;
+  }
+
+  .bucketlist__item {
+    flex-wrap: wrap;
+  }
+
+  .bucketlist__when {
+    width: 100%;
+    padding-left: calc(26px + var(--space-md));
   }
 }

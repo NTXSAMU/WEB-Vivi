@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "site_title": "Para Viktoria",
+    "site_description": "Un rincón hecho para ti."
+  },
+
+  "gate": {
+    "enabled": true,
+    "_comentario": "Candado suave de bienvenida, no es seguridad real (cualquiera con conocimientos técnicos podría saltárselo viendo el código fuente). Sirve para que no entre cualquiera que tropiece con el link. Cambia la pregunta y la respuesta por algo vuestro.",
+    "question": "¿En qué mes nos conocimos? (escríbelo en letras, ej: marzo)",
+    "answer": "CAMBIA-ESTO"
+  },
+
+  "hero": {
+    "eyebrow": "// para ti",
+    "title": "Viktoria",
+    "subtitle": "Un rincón hecho solo para ti, con todo lo que se me ha ido ocurriendo mientras pensaba en ti.",
+    "cta_primary": { "label": "Nuestra playlist", "href": "#playlist" },
+    "cta_secondary": { "label": "Ábreme una carta", "href": "#carta" }
+  },
+
+  "letter": {
+    "eyebrow": "// carta",
+    "envelope_label": "Ábreme",
+    "title": "Antes de que sigas bajando...",
+    "body": [
+      "Llevo un tiempo dándole vueltas a cómo decirte todo esto, y al final decidí que las palabras sueltas no me bastaban — así que te hice una página entera.",
+      "Aquí abajo vas a encontrar las canciones que dices que te recuerdan a mí, cosas que quiero que hagamos juntos, notas random que se me ocurren en momentos random, y un rincón que pienso ir llenando poco a poco con todo lo que me vayas contando de ti.",
+      "Ve explorando con calma. Esto no está terminado a propósito — la idea es que crezca contigo."
+    ],
+    "signature": "Con cariño, (tu nombre aquí)"
+  },
+
+  "songs_intro": "Dices que estas canciones te recuerdan a mí. Aquí están, todas juntas.",
+  "song_notes": {
+    "_comentario": "Opcional: añade aquí una frase por canción usando su 'slug' (el nombre de archivo sin .mp3) como clave. Ejemplo real más abajo, comentado.",
+    "_ejemplo": "a-mi: 'Esta fue la primera que me enseñaste'  ->  \"a-mi\": \"Esta fue la primera que me enseñaste\""
+  },
+
+  "notes": [
+    {
+      "type": "sentimiento",
+      "mood": "ternura",
+      "text": "(placeholder) Hay días que pienso en ti y no sé si es alegría, nervios o las dos cosas a la vez. Cambia esto por eso que sientes y no siempre dices en voz alta."
+    },
+    {
+      "type": "sentimiento",
+      "mood": "nostalgia",
+      "text": "(placeholder) A veces me acuerdo de algo random que dijiste hace tiempo y se me queda la sonrisa tonta un rato. Escribe aquí uno de esos recuerdos."
+    },
+    {
+      "type": "nota",
+      "text": "(placeholder) Una nota rápida, de esas que mandarías sin razón aparente solo porque te acordaste de algo."
+    },
+    {
+      "type": "nota",
+      "text": "(placeholder) Otra notita corta. Estas son ideales para cosas pequeñas del día a día."
+    },
+    {
+      "type": "carta",
+      "text": "(placeholder) Aquí puedes pegar una carta más larga, de esas que se escriben cuando hay más que decir de lo que cabe en un mensaje de texto."
+    },
+    {
+      "type": "carta",
+      "text": "(placeholder) Otra carta, para otro momento. No hace falta que todas pesen lo mismo — algunas pueden ser ligeras."
+    }
+  ],
+
+  "bucket_list": [
+    { "text": "Hacerte esta web", "done": true, "when": "hecho" },
+    { "text": "Ver un atardecer juntos en algún sitio nuevo", "done": false, "when": "algún día" },
+    { "text": "Cocinar algo random sin receta y que salga fatal", "done": false, "when": "este año" },
+    { "text": "Un fin de semana sin plan cerrado, a ver qué sale", "done": false, "when": "algún día" },
+    { "text": "Ir a un concierto de alguna canción de la playlist", "done": false, "when": "algún día" },
+    { "text": "(añade aquí vuestro próximo plan)", "done": false, "when": "cuando sea" }
+  ],
+
+  "likes": [
+    {
+      "category": "Comida",
+      "icon": "🍰",
+      "items": [
+        "(su postre favorito va aquí)",
+        "(ese plato que pide siempre)",
+        "(algo que odia que le pongan en el plato)"
+      ]
+    },
+    {
+      "category": "Joyería",
+      "icon": "💍",
+      "items": [
+        "(estilo que le gusta: fino, llamativo...)",
+        "(metal favorito: oro, plata...)",
+        "(alguna pieza que ha mirado y no se ha comprado)"
+      ]
+    },
+    {
+      "category": "Sitios",
+      "icon": "📍",
+      "items": [
+        "(un sitio al que quiere volver)",
+        "(un sitio al que quiere ir por primera vez)"
+      ]
+    },
+    {
+      "category": "Planes",
+      "icon": "🎯",
+      "items": [
+        "(su plan perfecto de sábado)",
+        "(algo que siempre dice que quiere hacer 'algún día')"
+      ]
+    },
+    {
+      "category": "Series y películas",
+      "icon": "🎬",
+      "items": [
+        "(la serie que se ha visto entera dos veces)",
+        "(esa que le da vergüenza admitir que le gusta)"
+      ]
+    },
+    {
+      "category": "Colores",
+      "icon": "🎨",
+      "items": [
+        "(su color favorito)",
+        "(el color que más lleva puesto)"
+      ]
+    }
+  ],
+
+  "memories": [
+    {
+      "date": "(fecha o 'un día random')",
+      "title": "(título de este recuerdo)",
+      "text": "Cuenta aquí qué pasó, cómo fue el día, qué recuerdas exactamente. Añade más entradas como esta a medida que os pasen cosas.",
+      "image": null
+    },
+    {
+      "date": "(fecha o 'un día random')",
+      "title": "(otro recuerdo)",
+      "text": "Este es el sitio para las cosas pequeñas también, no hace falta que sean días 'importantes'.",
+      "image": null
+    }
+  ],
+
+  "questions": [
+    "Si pudieras repetir un solo día de los que hemos pasado juntos, ¿cuál sería?",
+    "¿Qué canción de la playlist te hace pensar más en mí, y por qué?",
+    "¿Hay algo que quieras que hagamos juntos y nunca me lo has dicho?",
+    "¿Cuál es tu recuerdo favorito de este último tiempo?",
+    "Si tuvieras que describir 'nosotros' en una palabra, ¿cuál sería?",
+    "¿Qué es algo pequeño que hago que te gusta más de lo que crees que sé?",
+    "¿Hay un sitio al que quieras que vayamos juntos algún día?",
+    "¿Qué canción pondrías si tuvieras que resumir cómo te sientes hoy?",
+    "¿Cuál ha sido el mejor plan random que hemos hecho sin planearlo?",
+    "Si esta página tuviera una sección más, ¿cuál te gustaría que añadiera?"
+  ],
+
+  "footer": {
+    "text": "Hecha con calma, para ti.",
+    "signature": "— (tu nombre aquí)"
+  }
+}

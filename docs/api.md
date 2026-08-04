@@ -1,45 +1,17 @@
 # API
 
-Endpoints expuestos por el backend Flask (prefijo `/api`).
+El contenido ya no se sirve por API — se renderiza directamente en el HTML
+con Jinja2 (ver `backend/routes/home.py`), tanto en local como en la versión
+publicada en GitHub Pages (que se genera con `scripts/freeze.py`).
+
+El único endpoint JSON que queda es un health-check:
 
 ## `GET /api/health`
-Comprobación de vida del servicio.
+Comprobación de que el backend está vivo.
 
 **Respuesta 200**
 ```json
 { "status": "ok" }
 ```
 
-## `GET /api/gallery`
-Lista las imágenes disponibles en `backend/static/images`.
-
-**Respuesta 200**
-```json
-{ "images": [ { "filename": "foto1.jpg", "url": "/static/images/foto1.jpg" } ] }
-```
-
-## `GET /api/playlist`
-Lista las pistas disponibles en `backend/static/music`.
-
-**Respuesta 200**
-```json
-{ "tracks": [ { "filename": "ambient1.mp3", "title": "Ambient1", "url": "/static/music/ambient1.mp3" } ] }
-```
-
-## `POST /api/contact`
-Guarda un mensaje de contacto en SQLite (`database/sqlite.db`, tabla `contact_messages`).
-
-**Body**
-```json
-{ "name": "Ada", "email": "ada@example.com", "message": "Hola!" }
-```
-
-**Respuesta 200**
-```json
-{ "ok": true, "message": "Mensaje recibido, ¡gracias!" }
-```
-
-**Respuesta 400** (campos faltantes o email inválido)
-```json
-{ "ok": false, "error": "Faltan campos obligatorios." }
-```
+Para editar lo que se muestra en la web, ver `docs/content-guide.md`.

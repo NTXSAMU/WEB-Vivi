@@ -22,11 +22,9 @@ def create_app(env: str | None = None) -> Flask:
     # Blueprints
     from routes.home import home_bp
     from routes.api import api_bp
-    from routes.contact import contact_bp
 
     app.register_blueprint(home_bp)
     app.register_blueprint(api_bp, url_prefix="/api")
-    app.register_blueprint(contact_bp, url_prefix="/api")
 
     return app
 

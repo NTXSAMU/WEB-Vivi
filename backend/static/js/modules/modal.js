@@ -1,4 +1,4 @@
-/* modules/modal.js — lightbox mínimo para la galería, sin dependencias */
+/* modules/modal.js — lightbox mínimo (fotos y recuerdos), sin dependencias */
 
 function onKeydown(e) {
   if (e.key === 'Escape') closeModal();

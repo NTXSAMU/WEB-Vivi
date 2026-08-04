@@ -1,28 +1,28 @@
 # Roadmap
 
-Notas de qué falta y en qué orden tiene sentido abordarlo.
+## Hecho
+- [x] Backend Flask con todo el contenido en `backend/data/content.json`.
+- [x] Secciones: hero, carta, playlist (45 canciones), notas/sentimientos/cartas,
+      cosas que le gustan (por categorías), planes por hacer, recuerdos, fotos,
+      juego de preguntas.
+- [x] Diseño romántico propio: paleta rosa/dorado sobre fondo íntimo, tipografía
+      Playfair Display + Inter + Caveat, tema claro/oscuro, cursor personalizado,
+      partículas suaves, scroll reveal.
+- [x] Candado de entrada opcional (pregunta/respuesta).
+- [x] `noindex` para que no salga en buscadores.
+- [x] Publicación automática en GitHub Pages vía `scripts/freeze.py`.
+- [x] 45 canciones recomprimidas a 128kbps (240MB -> 134MB) con título/artista
+      reales leídos de las etiquetas ID3.
 
-## Fase 0 — Andamiaje (hecho en esta entrega)
-- [x] Estructura completa de carpetas del proyecto.
-- [x] Backend Flask funcional (rutas, servicios, plantillas Jinja2).
-- [x] Landing de una página: navbar, hero, sobre-mí, galería, proyectos, contacto, footer.
-- [x] Sistema de diseño propio (variables.css) con tema claro/oscuro.
-- [x] Formulario de contacto guardando en SQLite.
-- [x] Cursor personalizado, partículas ambiente, reveal on scroll, lightbox de galería.
+## Por hacer (contenido, no código)
+- [ ] Rellenar `content.json` con cosas reales: notas, planes, recuerdos, cosas
+      que le gustan, preguntas del juego. Ahora mismo todo son placeholders
+      marcados con paréntesis, ej. `(su postre favorito va aquí)`.
+- [ ] Cambiar `gate.answer` en `content.json` por la respuesta real.
+- [ ] Añadir fotos a `backend/static/images/` (aparecen solas en "Fotos sueltas").
+- [ ] Opcional: notas por canción en `song_notes`.
 
-## Fase 1 — Contenido real
-- [ ] Sustituir textos placeholder (about, proyectos) por contenido real.
-- [ ] Subir fotos/artwork a `backend/static/images` (la galería las detecta sola).
-- [ ] Subir pistas a `backend/static/music` (el reproductor las detecta solo).
-- [ ] Actualizar enlaces de redes en el footer.
-
-## Fase 2 — Funcionalidad
-- [ ] Enviar notificación por email al recibir un mensaje de contacto.
-- [ ] Panel simple para ver los mensajes guardados en `contact_messages`.
-- [ ] Paginación/filtros en la galería si crece mucho.
-
-## Fase 3 — Extras
-- [ ] Evaluar si el módulo C++ (`cpp/`) aporta algo real (p. ej. física de partículas
-      compilada a WebAssembly) o si se puede eliminar para simplificar.
-- [ ] Tests automáticos (`tests/`) para las rutas del backend.
-- [ ] Pipeline de build/optimización (`scripts/optimize_images.py`, `compress_audio.py`).
+## Ideas para más adelante
+- [ ] Que las canciones tengan letra/momento destacado además del título.
+- [ ] Una sección de "cuenta atrás" para una fecha especial.
+- [ ] Modo "sorpresa": una nota nueva que se desbloquea cada semana.

@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Mi Landing{% endblock %}</title>
-  <meta name="description" content="{% block description %}Portfolio personal — proyectos, galería y contacto.{% endblock %}">
+  <title>{% block title %}{{ content.meta.site_title or "Para ti" }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ content.meta.site_description or '' }}{% endblock %}">
 
-  <!-- Tipografía: Space Grotesk (display) + Inter (texto) + JetBrains Mono (utilitaria) -->
+  <!-- Página personal y privada: pedimos a los buscadores que no la indexen -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Tipografía: Playfair Display (titulares) + Inter (texto) + Caveat (detalles manuscritos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="icon" href="{{ url_for('static', filename='icons/favicon.svg') }}" type="image/svg+xml">
 
@@ -26,8 +29,21 @@
 </head>
 <body>
 
+  {% set gate = content.gate %}
+  {% if gate and gate.enabled %}
+  <div id="gate" class="gate" data-answer="{{ gate.answer | lower | trim }}">
+    <form id="gateForm" class="gate__box">
+      <p class="gate__eyebrow">// solo para ti</p>
+      <p class="gate__question">{{ gate.question }}</p>
+      <input type="text" id="gateInput" class="gate__input" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button type="submit" class="btn btn--primary">Entrar</button>
+      <p class="gate__error" id="gateError" role="alert"></p>
+    </form>
+  </div>
+  {% endif %}
+
   <div id="preloader" class="preloader" aria-hidden="true">
-    <span class="preloader__glyph">&lt;/&gt;</span>
+    <span class="preloader__glyph">♡</span>
   </div>
 
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
@@ -41,9 +57,8 @@
 
   {% include "components/footer.html" %}
 
-  <!-- JS: main.js es un módulo ES que importa (utils, api, loader, theme, navbar,
-       scroll, cursor, particles, gallery, music, animations, contact y modules/*).
-       Un único entry point evita listeners duplicados y usa import/export nativo. -->
+  <!-- JS: main.js es un módulo ES que importa el resto (utils, theme, navbar,
+       scroll, cursor, particles, playlist, notes, bucketlist, likes, question-game...) -->
   <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
   {% block extra_scripts %}{% endblock %}
 </body>

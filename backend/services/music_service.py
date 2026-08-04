@@ -1,8 +1,10 @@
 """
-Servicio de música: expone las pistas de static/music para el reproductor (player.js).
+Servicio de música: expone las pistas de static/music para el reproductor.
 
-De momento la carpeta backend/static/music está vacía (placeholder).
-Cuando añadas pistas, este servicio las listará automáticamente.
+Lee el título y artista reales desde las etiquetas ID3 de cada mp3 (con
+mutagen). Si un archivo no tiene etiquetas legibles, usa el nombre de
+archivo como título de reserva. Para añadir una canción nueva basta con
+copiar el mp3 a backend/static/music/ — aparece sola en la playlist.
 """
 from pathlib import Path
 
@@ -10,22 +12,49 @@ from config import Config
 
 from .utils import ALLOWED_AUDIO_EXT
 
+try:
+    from mutagen import File as MutagenFile
+except ImportError:
+    MutagenFile = None
+
+
+def _read_tags(path: Path) -> tuple[str, str]:
+    """Devuelve (título, artista) desde las etiquetas ID3, con reservas sensatas."""
+    fallback_title = path.stem.replace("_", " ").replace("-", " ").title()
+
+    if MutagenFile is None:
+        return fallback_title, ""
+
+    try:
+        audio = MutagenFile(path, easy=True)
+        if not audio or not audio.tags:
+            return fallback_title, ""
+        title = (audio.tags.get("title") or [None])[0] or fallback_title
+        artist = (audio.tags.get("artist") or [None])[0] or ""
+        return title, artist
+    except Exception:
+        return fallback_title, ""
+
 
 def get_playlist() -> list[dict]:
     """
-    Devuelve la lista de pistas disponibles en static/music.
-    Cada item: {"filename": str, "title": str, "url": str}
+    Devuelve la lista de pistas disponibles en static/music, ordenadas por título.
+    Cada item: {"slug": str, "title": str, "artist": str, "url": str}
     """
     music_dir: Path = Config.MUSIC_DIR
     if not music_dir.exists():
         return []
 
     tracks = []
-    for path in sorted(music_dir.iterdir()):
+    for path in music_dir.iterdir():
         if path.is_file() and path.suffix.lower() in ALLOWED_AUDIO_EXT:
+            title, artist = _read_tags(path)
             tracks.append({
-                "filename": path.name,
-                "title": path.stem.replace("_", " ").replace("-", " ").title(),
+                "slug": path.stem,
+                "title": title,
+                "artist": artist,
                 "url": f"/static/music/{path.name}",
             })
+
+    tracks.sort(key=lambda t: t["title"].lower())
     return tracks

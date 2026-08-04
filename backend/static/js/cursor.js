@@ -32,7 +32,7 @@ export function initCursor() {
 
   if (!prefersReducedMotion()) requestAnimationFrame(animateRing);
 
-  document.querySelectorAll('a, button, .gallery__item').forEach((el) => {
+  document.querySelectorAll('a, button, .gallery__item, .playlist__track, .note-card, .timeline__image').forEach((el) => {
     el.addEventListener('mouseenter', () => ring.classList.add('is-active'));
     el.addEventListener('mouseleave', () => ring.classList.remove('is-active'));
   });

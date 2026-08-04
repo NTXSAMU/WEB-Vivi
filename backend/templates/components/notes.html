@@ -1,0 +1,24 @@
+<section class="section" id="notas">
+  <div class="section__inner">
+    <p class="eyebrow">// notas</p>
+    <h2 class="section__title">Cosas que se me ocurren</h2>
+
+    {% if content.notes %}
+    <div class="notes__filters" role="tablist" aria-label="Filtrar notas">
+      <button class="notes__filter is-active" data-filter="all" type="button">Todas</button>
+      <button class="notes__filter" data-filter="sentimiento" type="button">Sentimientos</button>
+      <button class="notes__filter" data-filter="nota" type="button">Notas</button>
+      <button class="notes__filter" data-filter="carta" type="button">Cartas</button>
+    </div>
+
+    <div class="notes__grid reveal-up" id="notesGrid">
+      {% for note in content.notes %}
+      <article class="note-card note-card--{{ note.type }}" data-type="{{ note.type }}">
+        <p class="note-card__type">{{ note.type }}{% if note.mood %} · {{ note.mood }}{% endif %}</p>
+        <p class="note-card__text">{{ note.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

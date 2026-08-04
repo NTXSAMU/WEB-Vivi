@@ -1,0 +1,20 @@
+<section class="section" id="carta">
+  <div class="section__inner section__inner--narrow">
+    <p class="eyebrow">{{ content.letter.eyebrow }}</p>
+
+    <div class="envelope" id="envelope">
+      <button class="envelope__flap" id="envelopeButton" type="button" aria-expanded="false" aria-controls="envelopeLetter">
+        <span class="envelope__icon" aria-hidden="true">✉</span>
+        <span class="envelope__label">{{ content.letter.envelope_label }}</span>
+      </button>
+
+      <div class="envelope__letter" id="envelopeLetter">
+        <h2 class="section__title">{{ content.letter.title }}</h2>
+        {% for paragraph in content.letter.body %}
+        <p class="letter__paragraph">{{ paragraph }}</p>
+        {% endfor %}
+        <p class="letter__signature">{{ content.letter.signature }}</p>
+      </div>
+    </div>
+  </div>
+</section>

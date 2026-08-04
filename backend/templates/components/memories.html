@@ -1,0 +1,27 @@
+<section class="section section--muted" id="recuerdos">
+  <div class="section__inner">
+    <p class="eyebrow">// recuerdos</p>
+    <h2 class="section__title">Momentos</h2>
+    <p class="section__lead">Esta lista está pensada para ir creciendo — cada vez que pase algo que quiera recordar, lo añado aquí.</p>
+
+    {% if content.memories %}
+    <div class="timeline reveal-up">
+      {% for memory in content.memories %}
+      <article class="timeline__item">
+        <div class="timeline__marker" aria-hidden="true"></div>
+        <div class="timeline__content">
+          <p class="timeline__date">{{ memory.date }}</p>
+          <h3 class="timeline__title">{{ memory.title }}</h3>
+          <p class="timeline__text">{{ memory.text }}</p>
+          {% if memory.image %}
+          <button class="timeline__image lightbox-trigger" type="button" data-full="{{ memory.image }}">
+            <img src="{{ memory.image }}" alt="{{ memory.title }}" loading="lazy">
+          </button>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

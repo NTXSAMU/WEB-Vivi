@@ -1,0 +1,28 @@
+<section class="section section--muted" id="para-ti">
+  <div class="section__inner">
+    <p class="eyebrow">// para ti</p>
+    <h2 class="section__title">Cosas que sé (o quiero apuntar) que te gustan</h2>
+
+    {% if content.likes %}
+    <div class="likes" id="likesApp">
+      <div class="likes__tabs" role="tablist">
+        {% for group in content.likes %}
+        <button class="likes__tab{% if loop.first %} is-active{% endif %}" data-target="likes-panel-{{ loop.index0 }}" type="button" role="tab">
+          <span class="likes__tab-icon" aria-hidden="true">{{ group.icon }}</span> {{ group.category }}
+        </button>
+        {% endfor %}
+      </div>
+
+      <div class="likes__panels">
+        {% for group in content.likes %}
+        <ul class="likes__panel{% if loop.first %} is-active{% endif %}" id="likes-panel-{{ loop.index0 }}" role="tabpanel">
+          {% for item in group['items'] %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>

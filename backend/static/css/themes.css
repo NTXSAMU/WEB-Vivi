@@ -1,23 +1,23 @@
-/* themes.css — tema claro alternativo.
+/* themes.css — tema claro alternativo (día, cálido/crema).
    theme.js conmuta el atributo data-theme en <html> y lo persiste. */
 
 [data-theme="light"] {
-  --color-bg: #F6F5F2;
-  --color-bg-alt: #EFEDE8;
+  --color-bg: #FBF3F0;
+  --color-bg-alt: #F5E8E3;
   --color-surface: #FFFFFF;
-  --color-surface-alt: #F0EEE9;
-  --color-border: #E1DED6;
+  --color-surface-alt: #FCF1EE;
+  --color-border: #F0DDE2;
 
-  --color-text: #1A1C22;
-  --color-text-muted: #565B66;
-  --color-text-faint: #8A8F99;
+  --color-text: #3A2530;
+  --color-text-muted: #7A5B66;
+  --color-text-faint: #A88793;
 
-  --color-accent: #C97A2E;
-  --color-accent-strong: #A8631F;
-  --color-secondary: #3555D6;
+  --color-accent: #C6577A;
+  --color-accent-strong: #AD4468;
+  --color-secondary: #B8863E;
 
-  --shadow-soft: 0 8px 30px rgba(20, 20, 20, 0.08);
-  --glow-accent: 0 0 30px rgba(201, 122, 46, 0.18);
+  --shadow-soft: 0 8px 30px rgba(58, 37, 48, 0.08);
+  --glow-accent: 0 0 30px rgba(198, 87, 122, 0.18);
 }
 
 [data-theme="light"] .btn--primary {
@@ -25,7 +25,7 @@
 }
 
 [data-theme="light"] .navbar.is-scrolled {
-  background: rgba(246, 245, 242, 0.85);
+  background: rgba(251, 243, 240, 0.85);
 }
 
 [data-theme="light"] .preloader {

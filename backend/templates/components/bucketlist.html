@@ -1,0 +1,29 @@
+{% set total = content.bucket_list|length %}
+{% set done_count = content.bucket_list|selectattr("done")|list|length %}
+<section class="section" id="planes">
+  <div class="section__inner section__inner--narrow">
+    <p class="eyebrow">// planes</p>
+    <h2 class="section__title">Cosas por hacer</h2>
+
+    {% if content.bucket_list %}
+    <div class="bucketlist" id="bucketlistApp" data-total="{{ total }}">
+      <p class="bucketlist__progress-label"><span id="bucketlistDoneCount">{{ done_count }}</span> de {{ total }} cumplidas</p>
+      <div class="bucketlist__progress-bar">
+        <div class="bucketlist__progress-fill" id="bucketlistProgressFill" style="width: {{ ((done_count / total * 100) if total else 0) | round(1) }}%"></div>
+      </div>
+
+      <ul class="bucketlist__list">
+        {% for item in content.bucket_list %}
+        <li class="bucketlist__item{% if item.done %} is-done{% endif %}" data-id="planes-{{ loop.index0 }}" data-official="{{ 'true' if item.done else 'false' }}">
+          <button class="bucketlist__check" type="button" aria-pressed="{{ 'true' if item.done else 'false' }}" {% if item.done %}disabled{% endif %} aria-label="Marcar como cumplido">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <span class="bucketlist__text">{{ item.text }}</span>
+          <span class="bucketlist__when">{{ item.when }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</section>

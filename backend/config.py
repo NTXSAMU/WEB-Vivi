@@ -14,13 +14,11 @@ class Config:
     DEBUG = False
     TESTING = False
 
-    # Rutas usadas por los servicios (galería, música, etc.)
+    # Rutas usadas por los servicios (fotos, música, contenido editable...)
     STATIC_DIR = BASE_DIR / "static"
     IMAGES_DIR = STATIC_DIR / "images"
     MUSIC_DIR = STATIC_DIR / "music"
-
-    # Base de datos SQLite (usada por routes/contact.py)
-    DATABASE_PATH = BASE_DIR.parent / "database" / "sqlite.db"
+    CONTENT_PATH = BASE_DIR / "data" / "content.json"
 
 
 class DevelopmentConfig(Config):
@@ -33,7 +31,6 @@ class ProductionConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
-    DATABASE_PATH = ":memory:"
 
 
 config_by_name = {

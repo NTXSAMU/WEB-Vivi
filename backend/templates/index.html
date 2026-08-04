@@ -1,12 +1,16 @@
 {% extends "layout.html" %}
 
-{% block title %}Tu Nombre — Desarrollador & Artista Digital{% endblock %}
-{% block description %}Portfolio de Tu Nombre: proyectos, galería visual y contacto.{% endblock %}
+{% block title %}{{ content.meta.site_title or "Para ti" }}{% endblock %}
+{% block description %}{{ content.meta.site_description or '' }}{% endblock %}
 
 {% block content %}
   {% include "components/hero.html" %}
-  {% include "components/about.html" %}
-  {% include "components/gallery.html" %}
-  {% include "components/projects.html" %}
-  {% include "components/contact.html" %}
+  {% include "components/letter.html" %}
+  {% include "components/playlist.html" %}
+  {% include "components/notes.html" %}
+  {% include "components/likes.html" %}
+  {% include "components/bucketlist.html" %}
+  {% include "components/memories.html" %}
+  {% include "components/photos.html" %}
+  {% include "components/question-game.html" %}
 {% endblock %}
