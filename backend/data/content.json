@@ -7,8 +7,8 @@
   "gate": {
     "enabled": true,
     "_comentario": "Candado suave de bienvenida, no es seguridad real (cualquiera con conocimientos técnicos podría saltárselo viendo el código fuente). Sirve para que no entre cualquiera que tropiece con el link. Cambia la pregunta y la respuesta por algo vuestro.",
-    "question": "¿En qué mes nos conocimos? (escríbelo en letras, ej: marzo)",
-    "answer": "CAMBIA-ESTO"
+    "question": "¿En qué mes nos conocimos?",
+    "answer": "Septiembre"
   },
 
   "hero": {
