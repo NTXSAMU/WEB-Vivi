@@ -10,6 +10,9 @@
 
       <div class="envelope__letter" id="envelopeLetter">
         <h2 class="section__title">{{ content.letter.title }}</h2>
+        {% if content.letter.salutation %}
+        <p class="letter__salutation">{{ content.letter.salutation }}</p>
+        {% endif %}
         {% for paragraph in content.letter.body %}
         <p class="letter__paragraph">{{ paragraph }}</p>
         {% endfor %}

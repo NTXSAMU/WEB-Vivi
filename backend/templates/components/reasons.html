@@ -1,0 +1,18 @@
+<section class="section" id="razones">
+  <div class="section__inner">
+    <p class="eyebrow">// 100 razones</p>
+    <h2 class="section__title">100 razones por las que te amo</h2>
+    <p class="section__lead">No hacía falta contarlas, pero quería hacerlo igual.</p>
+
+    {% if content.reasons %}
+    <ol class="reasons__list reveal-up">
+      {% for reason in content.reasons %}
+      <li>
+        <span class="reasons__number">{{ "%02d"|format(loop.index) }}</span>
+        <span class="reasons__text">{{ reason }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  </div>
+</section>

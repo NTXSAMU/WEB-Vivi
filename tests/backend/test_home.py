@@ -24,7 +24,7 @@ def test_index_status_ok(client):
 def test_index_contains_all_sections(client):
     body = client.get("/").get_data(as_text=True)
     for section_id in [
-        "hero", "carta", "playlist", "notas",
+        "hero", "carta", "razones", "playlist", "notas",
         "para-ti", "planes", "recuerdos", "fotos", "juego",
     ]:
         assert f'id="{section_id}"' in body

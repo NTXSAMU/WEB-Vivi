@@ -60,6 +60,10 @@
     columns: 1;
   }
 
+  .reasons__list {
+    columns: 1;
+  }
+
   .likes__panel {
     max-width: none;
   }

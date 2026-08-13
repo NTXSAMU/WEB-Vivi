@@ -12,6 +12,30 @@ reconstruye la web sola en 1-2 minutos.
 
 ---
 
+## Cambiar el saludo o el cuerpo de la carta
+
+Busca `"letter"`. `"salutation"` es la línea de saludo (ej. `"Querida Vivi,"`),
+`"body"` es la lista de párrafos:
+
+```json
+"salutation": "Querida Vivi,",
+"body": ["Primer párrafo...", "Segundo párrafo..."]
+```
+
+## Editar las 100 razones
+
+Busca `"reasons"` — es una lista simple de 100 frases, en orden. Para
+cambiar una, edita el texto entre comillas. Para añadir o quitar alguna,
+añade/borra una línea (recuerda las comas entre elementos). No pasa nada
+si no son exactamente 100 — la web muestra las que haya, numeradas en orden.
+
+```json
+"reasons": [
+  "Por cómo te ríes de tus propios chistes.",
+  "Porque tienes buen gusto hasta para las cosas más tontas."
+]
+```
+
 ## Añadir una nota / sentimiento / carta
 
 Busca la lista `"notes"` y añade un bloque como este (con coma antes si no
