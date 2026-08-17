@@ -399,6 +399,20 @@
   gap: var(--space-sm);
 }
 
+.playlist__volume {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.playlist__volume-slider {
+  flex-grow: 1;
+  accent-color: var(--color-accent);
+  height: 4px;
+  cursor: pointer;
+}
+
 .playlist__list {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -851,7 +865,6 @@
   color: var(--color-accent);
 }
 
-/* Foco visible accesible para navegación por teclado */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

@@ -1,10 +1,15 @@
 /*
  * playlist.js — reproductor de la sección "playlist": play/pausa, anterior,
- * siguiente, aleatorio, y click directo en cualquier pista de la lista.
+ * siguiente, aleatorio, volumen, y arranque automático en cuanto se entra
+ * a la web (enganchado al gesto de "Entrar" del candado -- ver gate.js).
  * Usa modules/player.js (envoltorio sobre <audio>).
  */
 import { qsa } from './utils.js';
 import { AudioPlayer } from './modules/player.js';
+import { UNLOCK_EVENT } from './gate.js';
+
+const VOLUME_KEY = 'playlist-volume';
+const DEFAULT_VOLUME = 70;
 
 function shuffleArray(arr) {
   const copy = [...arr];
@@ -39,9 +44,14 @@ export function initPlaylist() {
   const prevBtn = document.getElementById('playlistPrev');
   const nextBtn = document.getElementById('playlistNext');
   const shuffleBtn = document.getElementById('playlistShuffle');
+  const volumeInput = document.getElementById('playlistVolume');
+  const muteBtn = document.getElementById('playlistMuteBtn');
+  const iconVolOn = muteBtn?.querySelector('.icon-vol-on');
+  const iconVolOff = muteBtn?.querySelector('.icon-vol-off');
 
   let currentIndex = -1;
   let order = tracks.map((t) => t.index);
+  let lastVolume = DEFAULT_VOLUME;
 
   function setPlayingIcon(isPlaying) {
     iconPlay.hidden = isPlaying;
@@ -58,11 +68,19 @@ export function initPlaylist() {
     if (!track) return;
     currentIndex = index;
     player.load({ url: track.src });
-    player.play().catch(() => {});
     nowTitle.textContent = track.title;
     nowArtist.textContent = track.artist;
     highlightTrack(index);
-    setPlayingIcon(true);
+
+    player
+      .play()
+      .then(() => setPlayingIcon(true))
+      .catch(() => {
+        // El navegador bloqueó la reproducción (normal si no hubo gesto del
+        // usuario, p.ej. en un autoplay fallido). Queda listo para que el
+        // click manual en el botón de play lo arranque.
+        setPlayingIcon(false);
+      });
   }
 
   function playAdjacent(offset) {
@@ -88,8 +106,7 @@ export function initPlaylist() {
       player.pause();
       setPlayingIcon(false);
     } else {
-      player.play().catch(() => {});
-      setPlayingIcon(true);
+      player.play().then(() => setPlayingIcon(true)).catch(() => {});
     }
   });
 
@@ -103,4 +120,42 @@ export function initPlaylist() {
   });
 
   player.audio.addEventListener('ended', () => playAdjacent(1));
+
+  // --- Volumen (regulable en cualquier momento, se recuerda entre visitas) ---
+  function setVolumeIcon(v) {
+    if (!iconVolOn || !iconVolOff) return;
+    iconVolOn.hidden = v === 0;
+    iconVolOff.hidden = v !== 0;
+  }
+
+  if (volumeInput) {
+    const stored = Number(localStorage.getItem(VOLUME_KEY));
+    const initialVolume = Number.isFinite(stored) && stored > 0 ? stored : DEFAULT_VOLUME;
+    volumeInput.value = String(initialVolume);
+    player.audio.volume = initialVolume / 100;
+    lastVolume = initialVolume || DEFAULT_VOLUME;
+    setVolumeIcon(initialVolume);
+
+    volumeInput.addEventListener('input', () => {
+      const v = Number(volumeInput.value);
+      player.audio.volume = v / 100;
+      localStorage.setItem(VOLUME_KEY, String(v));
+      setVolumeIcon(v);
+      if (v > 0) lastVolume = v;
+    });
+  }
+
+  muteBtn?.addEventListener('click', () => {
+    if (!volumeInput) return;
+    const current = Number(volumeInput.value);
+    volumeInput.value = current > 0 ? '0' : String(lastVolume || DEFAULT_VOLUME);
+    volumeInput.dispatchEvent(new Event('input'));
+  });
+
+  // --- Autoplay: arranca en cuanto se "entra" a la web ---
+  // gate.js dispara este evento justo en el click de "Entrar" (o de
+  // inmediato si no hay candado / ya estaba desbloqueado). Si el navegador
+  // bloquea el audio por no considerarlo un gesto válido, playTrack() ya
+  // deja la interfaz lista para arrancar con un solo click manual.
+  window.addEventListener(UNLOCK_EVENT, () => playTrack(order[0]), { once: true });
 }

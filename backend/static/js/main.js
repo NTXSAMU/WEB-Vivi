@@ -1,5 +1,11 @@
-/* main.js — punto de entrada (type="module"). Importa e inicializa cada módulo. */
-import { initGate } from './gate.js';
+/*
+ * main.js — punto de entrada (type="module"). Importa e inicializa cada módulo.
+ *
+ * Orden importante: initPlaylist() debe ir ANTES que initGate(). gate.js
+ * dispara el evento "gate:unlocked" de forma síncrona (incluso antes de que
+ * el usuario haga nada, si no hay candado o ya estaba desbloqueado), así
+ * que su listener en playlist.js tiene que existir ya en ese momento.
+ */
 import { initLoader } from './loader.js';
 import { initTheme } from './theme.js';
 import { initNavbar } from './navbar.js';
@@ -14,6 +20,7 @@ import { initBucketlist } from './bucketlist.js';
 import { initLightbox } from './lightbox.js';
 import { initQuestionGame } from './question-game.js';
 import { initHeroIntro } from './animations.js';
+import { initGate } from './gate.js';
 
 function setFooterYear() {
   const el = document.getElementById('year');
@@ -21,7 +28,6 @@ function setFooterYear() {
 }
 
 function init() {
-  initGate();
   initLoader();
   initTheme();
   initNavbar();
@@ -36,6 +42,7 @@ function init() {
   initLightbox();
   initQuestionGame();
   initHeroIntro();
+  initGate();
   setFooterYear();
 }
 
