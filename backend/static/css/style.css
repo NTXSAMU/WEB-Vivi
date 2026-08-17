@@ -7,7 +7,6 @@ body {
   font-size: var(--fs-base);
 }
 
-/* Cuando hay cursor personalizado activo, ocultamos el del sistema en desktop */
 body.custom-cursor-active {
   cursor: none;
 }
@@ -27,8 +26,6 @@ h1, h2, h3, h4 {
   margin-inline: auto;
   padding-inline: var(--space-lg);
 }
-
-/* --- Utilidades tipográficas --- */
 
 .eyebrow {
   font-family: var(--font-body);
@@ -66,14 +63,12 @@ h1, h2, h3, h4 {
   font-size: var(--fs-lg);
 }
 
-/* --- Secciones --- */
-
 .section {
   padding-block: var(--space-2xl);
 }
 
 .section--muted {
-  background: var(--color-bg-alt);
+  background: color-mix(in srgb, var(--color-bg-alt) 88%, transparent);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
@@ -96,8 +91,6 @@ h1, h2, h3, h4 {
 .section__inner--center .section__lead {
   margin-inline: auto;
 }
-
-/* --- Botones --- */
 
 .btn {
   display: inline-flex;
@@ -152,8 +145,6 @@ h1, h2, h3, h4 {
   color: var(--color-accent);
 }
 
-/* --- Preloader --- */
-
 .preloader {
   position: fixed;
   inset: 0;
@@ -177,8 +168,6 @@ h1, h2, h3, h4 {
   visibility: hidden;
   pointer-events: none;
 }
-
-/* --- Cursor personalizado (elemento de firma) --- */
 
 .cursor-dot,
 .cursor-ring {

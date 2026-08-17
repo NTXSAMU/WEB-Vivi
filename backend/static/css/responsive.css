@@ -2,14 +2,6 @@
    aquí concentramos los ajustes por tamaño de pantalla. */
 
 @media (max-width: 900px) {
-  .playlist {
-    grid-template-columns: 1fr;
-  }
-
-  .playlist__player {
-    position: static;
-  }
-
   .notes__grid {
     columns: 2 220px;
   }

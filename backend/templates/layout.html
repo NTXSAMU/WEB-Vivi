@@ -6,17 +6,14 @@
   <title>{% block title %}{{ content.meta.site_title or "Para ti" }}{% endblock %}</title>
   <meta name="description" content="{% block description %}{{ content.meta.site_description or '' }}{% endblock %}">
 
-  <!-- Página personal y privada: pedimos a los buscadores que no la indexen -->
   <meta name="robots" content="noindex, nofollow">
 
-  <!-- Tipografía: Playfair Display (titulares) + Inter (texto) + Caveat (detalles manuscritos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="icon" href="{{ url_for('static', filename='icons/favicon.svg') }}" type="image/svg+xml">
 
-  <!-- CSS: el orden importa (reset -> variables -> base -> componentes -> animaciones -> responsive -> temas) -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -28,6 +25,8 @@
   {% block extra_head %}{% endblock %}
 </head>
 <body>
+
+  <canvas id="particlesCanvas" class="bg-particles" aria-hidden="true"></canvas>
 
   {% set gate = content.gate %}
   {% if gate and gate.enabled %}
@@ -57,8 +56,6 @@
 
   {% include "components/footer.html" %}
 
-  <!-- JS: main.js es un módulo ES que importa el resto (utils, theme, navbar,
-       scroll, cursor, particles, playlist, notes, bucketlist, likes, question-game...) -->
   <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
   {% block extra_scripts %}{% endblock %}
 </body>

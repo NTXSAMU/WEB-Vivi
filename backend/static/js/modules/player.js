@@ -1,10 +1,10 @@
-/* modules/player.js — envoltorio mínimo sobre <audio> para el reproductor ambiente */
+/* modules/player.js — envoltorio mínimo sobre <audio> para el reproductor de playlist */
 
 export class AudioPlayer {
   constructor() {
     this.audio = new Audio();
-    this.audio.loop = true;
-    this.audio.volume = 0.5;
+    this.audio.loop = false;
+    this.audio.volume = 0.7;
     this.currentTrack = null;
   }
 

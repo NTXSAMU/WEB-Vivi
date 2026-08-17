@@ -1,28 +1,23 @@
 /* variables.css — sistema de diseño romántico.
-   Tema por defecto: oscuro, íntimo (vino/berenjena + rosa/dorado).
-   El tema claro se sobreescribe en themes.css bajo [data-theme="light"]. */
+   Tema por defecto: oscuro, íntimo (vino/berenjena + rosa/dorado). */
 
 :root {
-  /* --- Color: superficie --- */
   --color-bg: #1A1116;
   --color-bg-alt: #21151C;
   --color-surface: #2A1B24;
   --color-surface-alt: #33212C;
   --color-border: #3D2530;
 
-  /* --- Color: texto --- */
   --color-text: #F5E9EC;
   --color-text-muted: #C9A8B5;
   --color-text-faint: #8C6B76;
 
-  /* --- Color: acento (firma de la marca) --- */
-  --color-accent: #E8A0BA;       /* rosa/blush — el acento cálido */
+  --color-accent: #E8A0BA;
   --color-accent-strong: #F2B8CC;
-  --color-secondary: #D4AF6A;    /* dorado — el segundo tono, "rose gold" */
+  --color-secondary: #D4AF6A;
   --color-success: #8FD3A6;
   --color-danger: #E8767B;
 
-  /* --- Tipografía --- */
   --font-display: "Playfair Display", "Georgia", serif;
   --font-body: "Inter", "Segoe UI", sans-serif;
   --font-script: "Caveat", cursive;
@@ -37,7 +32,6 @@
   --fs-4xl: clamp(2.75rem, 6vw, 4.75rem);
   --fs-script-lg: clamp(1.75rem, 3.5vw, 2.5rem);
 
-  /* --- Espaciado --- */
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -46,27 +40,24 @@
   --space-xl: 3.5rem;
   --space-2xl: 6rem;
 
-  /* --- Layout --- */
   --container-width: 1120px;
   --radius-sm: 6px;
   --radius-md: 14px;
   --radius-lg: 22px;
   --radius-full: 999px;
 
-  /* --- Movimiento --- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: 150ms var(--ease-out);
   --transition-base: 300ms var(--ease-out);
   --transition-slow: 600ms var(--ease-out);
 
-  /* --- Sombra / resplandor --- */
   --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.35);
   --glow-accent: 0 0 40px rgba(232, 160, 186, 0.28);
 
-  /* --- Z-index --- */
   --z-cursor: 9999;
   --z-preloader: 9998;
   --z-gate: 9997;
   --z-navbar: 500;
+  --z-player-bar: 600;
   --z-modal: 700;
 }
