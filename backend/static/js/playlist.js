@@ -1,8 +1,12 @@
 /*
- * playlist.js — reproductor de la sección "playlist": play/pausa, anterior,
- * siguiente, aleatorio, volumen, y arranque automático en cuanto se entra
- * a la web (enganchado al gesto de "Entrar" del candado -- ver gate.js).
- * Usa modules/player.js (envoltorio sobre <audio>).
+ * playlist.js — controla la barra de música (player-bar.html, estilo
+ * Spotify: fija abajo, todo el ancho, siempre visible en cualquier punto
+ * de la página): play/pausa, anterior, siguiente, aleatorio, progreso de
+ * la canción (con salto al arrastrar), volumen, y arranque automático al
+ * entrar a la web (enganchado al gesto de "Entrar" -- ver gate.js).
+ *
+ * Al terminar una canción pasa sola a la siguiente (nunca bucle: ver
+ * modules/player.js, audio.loop = false).
  */
 import { qsa } from './utils.js';
 import { AudioPlayer } from './modules/player.js';
@@ -20,12 +24,17 @@ function shuffleArray(arr) {
   return copy;
 }
 
-export function initPlaylist() {
-  const app = document.getElementById('playlistApp');
-  if (!app) return;
+function formatTime(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${String(s).padStart(2, '0')}`;
+}
 
-  const trackEls = qsa('.playlist__track', app);
-  if (!trackEls.length) return;
+export function initPlaylist() {
+  const trackEls = qsa('.playlist__track');
+  const bar = document.getElementById('playerBar');
+  if (!trackEls.length || !bar) return;
 
   const tracks = trackEls.map((el) => ({
     index: Number(el.dataset.index),
@@ -36,22 +45,28 @@ export function initPlaylist() {
   }));
 
   const player = new AudioPlayer();
-  const playBtn = document.getElementById('playlistPlayBtn');
+  player.audio.loop = false; // nunca en bucle: al acabar, pasa sola a la siguiente
+
+  const playBtn = document.getElementById('barPlayBtn');
   const iconPlay = playBtn.querySelector('.icon-play');
   const iconPause = playBtn.querySelector('.icon-pause');
-  const nowTitle = document.getElementById('nowPlayingTitle');
-  const nowArtist = document.getElementById('nowPlayingArtist');
-  const prevBtn = document.getElementById('playlistPrev');
-  const nextBtn = document.getElementById('playlistNext');
-  const shuffleBtn = document.getElementById('playlistShuffle');
-  const volumeInput = document.getElementById('playlistVolume');
-  const muteBtn = document.getElementById('playlistMuteBtn');
-  const iconVolOn = muteBtn?.querySelector('.icon-vol-on');
-  const iconVolOff = muteBtn?.querySelector('.icon-vol-off');
+  const nowTitle = document.getElementById('barNowTitle');
+  const nowArtist = document.getElementById('barNowArtist');
+  const prevBtn = document.getElementById('barPrev');
+  const nextBtn = document.getElementById('barNext');
+  const shuffleBtn = document.getElementById('barShuffle');
+  const seekInput = document.getElementById('barSeek');
+  const currentTimeEl = document.getElementById('barCurrentTime');
+  const durationEl = document.getElementById('barDuration');
+  const muteBtn = document.getElementById('playerBarMute');
+  const iconVolOn = muteBtn.querySelector('.icon-vol-on');
+  const iconVolOff = muteBtn.querySelector('.icon-vol-off');
+  const volumeInput = document.getElementById('barVolume');
 
   let currentIndex = -1;
   let order = tracks.map((t) => t.index);
   let lastVolume = DEFAULT_VOLUME;
+  let isSeeking = false;
 
   function setPlayingIcon(isPlaying) {
     iconPlay.hidden = isPlaying;
@@ -71,16 +86,14 @@ export function initPlaylist() {
     nowTitle.textContent = track.title;
     nowArtist.textContent = track.artist;
     highlightTrack(index);
+    seekInput.value = '0';
+    currentTimeEl.textContent = '0:00';
+    durationEl.textContent = '0:00';
 
     player
       .play()
       .then(() => setPlayingIcon(true))
-      .catch(() => {
-        // El navegador bloqueó la reproducción (normal si no hubo gesto del
-        // usuario, p.ej. en un autoplay fallido). Queda listo para que el
-        // click manual en el botón de play lo arranque.
-        setPlayingIcon(false);
-      });
+      .catch(() => setPlayingIcon(false));
   }
 
   function playAdjacent(offset) {
@@ -110,52 +123,71 @@ export function initPlaylist() {
     }
   });
 
-  prevBtn?.addEventListener('click', () => playAdjacent(-1));
-  nextBtn?.addEventListener('click', () => playAdjacent(1));
+  prevBtn.addEventListener('click', () => playAdjacent(-1));
+  nextBtn.addEventListener('click', () => playAdjacent(1));
 
-  shuffleBtn?.addEventListener('click', () => {
+  shuffleBtn.addEventListener('click', () => {
     const isShuffled = shuffleBtn.classList.toggle('is-active');
     shuffleBtn.setAttribute('aria-pressed', String(isShuffled));
     order = isShuffled ? shuffleArray(tracks.map((t) => t.index)) : tracks.map((t) => t.index);
   });
 
+  // Al terminar, pasa sola a la siguiente (nunca vuelve a empezar la misma)
   player.audio.addEventListener('ended', () => playAdjacent(1));
 
-  // --- Volumen (regulable en cualquier momento, se recuerda entre visitas) ---
+  // --- Progreso / buscar dentro de la canción ---
+  player.audio.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(player.audio.duration);
+  });
+
+  player.audio.addEventListener('timeupdate', () => {
+    if (isSeeking) return;
+    const pct = player.audio.duration ? (player.audio.currentTime / player.audio.duration) * 100 : 0;
+    seekInput.value = String(pct);
+    currentTimeEl.textContent = formatTime(player.audio.currentTime);
+  });
+
+  seekInput.addEventListener('input', () => {
+    isSeeking = true;
+    if (player.audio.duration) {
+      currentTimeEl.textContent = formatTime((Number(seekInput.value) / 100) * player.audio.duration);
+    }
+  });
+
+  seekInput.addEventListener('change', () => {
+    if (player.audio.duration) {
+      player.audio.currentTime = (Number(seekInput.value) / 100) * player.audio.duration;
+    }
+    isSeeking = false;
+  });
+
+  // --- Volumen (regulable en cualquier momento, en cualquier parte de la web) ---
   function setVolumeIcon(v) {
-    if (!iconVolOn || !iconVolOff) return;
     iconVolOn.hidden = v === 0;
     iconVolOff.hidden = v !== 0;
   }
 
-  if (volumeInput) {
-    const stored = Number(localStorage.getItem(VOLUME_KEY));
-    const initialVolume = Number.isFinite(stored) && stored > 0 ? stored : DEFAULT_VOLUME;
-    volumeInput.value = String(initialVolume);
-    player.audio.volume = initialVolume / 100;
-    lastVolume = initialVolume || DEFAULT_VOLUME;
-    setVolumeIcon(initialVolume);
+  const stored = Number(localStorage.getItem(VOLUME_KEY));
+  const initialVolume = Number.isFinite(stored) && stored > 0 ? stored : DEFAULT_VOLUME;
+  volumeInput.value = String(initialVolume);
+  player.audio.volume = initialVolume / 100;
+  lastVolume = initialVolume || DEFAULT_VOLUME;
+  setVolumeIcon(initialVolume);
 
-    volumeInput.addEventListener('input', () => {
-      const v = Number(volumeInput.value);
-      player.audio.volume = v / 100;
-      localStorage.setItem(VOLUME_KEY, String(v));
-      setVolumeIcon(v);
-      if (v > 0) lastVolume = v;
-    });
-  }
+  volumeInput.addEventListener('input', () => {
+    const v = Number(volumeInput.value);
+    player.audio.volume = v / 100;
+    localStorage.setItem(VOLUME_KEY, String(v));
+    setVolumeIcon(v);
+    if (v > 0) lastVolume = v;
+  });
 
-  muteBtn?.addEventListener('click', () => {
-    if (!volumeInput) return;
+  muteBtn.addEventListener('click', () => {
     const current = Number(volumeInput.value);
     volumeInput.value = current > 0 ? '0' : String(lastVolume || DEFAULT_VOLUME);
     volumeInput.dispatchEvent(new Event('input'));
   });
 
   // --- Autoplay: arranca en cuanto se "entra" a la web ---
-  // gate.js dispara este evento justo en el click de "Entrar" (o de
-  // inmediato si no hay candado / ya estaba desbloqueado). Si el navegador
-  // bloquea el audio por no considerarlo un gesto válido, playTrack() ya
-  // deja la interfaz lista para arrancar con un solo click manual.
   window.addEventListener(UNLOCK_EVENT, () => playTrack(order[0]), { once: true });
 }

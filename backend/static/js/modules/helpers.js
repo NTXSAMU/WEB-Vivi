@@ -7,7 +7,6 @@ export function createEl(tag, className, html) {
   return el;
 }
 
-/** Atrapa el foco de teclado dentro de un contenedor (uso: modales/menús). */
 export function trapFocus(container) {
   const focusable = container.querySelectorAll(
     'a, button, input, textarea, [tabindex]:not([tabindex="-1"])'

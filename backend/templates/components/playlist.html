@@ -5,43 +5,18 @@
     <p class="section__lead">{{ content.songs_intro }}</p>
 
     {% if playlist %}
-    <div class="playlist" id="playlistApp">
-      <div class="playlist__player">
-        <button class="playlist__play-btn" id="playlistPlayBtn" type="button" aria-label="Reproducir">
-          <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>
-          <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" hidden><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-        </button>
-        <div class="playlist__now-playing">
-          <p class="playlist__now-title" id="nowPlayingTitle">Elige una canción</p>
-          <p class="playlist__now-artist" id="nowPlayingArtist">&nbsp;</p>
-        </div>
-        <div class="playlist__controls">
-          <button id="playlistPrev" class="icon-btn" type="button" aria-label="Anterior">⏮</button>
-          <button id="playlistShuffle" class="icon-btn" type="button" aria-label="Orden aleatorio" aria-pressed="false">🔀</button>
-          <button id="playlistNext" class="icon-btn" type="button" aria-label="Siguiente">⏭</button>
-        </div>
-        <div class="playlist__volume">
-          <button id="playlistMuteBtn" class="icon-btn" type="button" aria-label="Silenciar">
-            <svg class="icon-vol-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-            <svg class="icon-vol-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" hidden><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-          </button>
-          <input type="range" id="playlistVolume" class="playlist__volume-slider" min="0" max="100" value="70" aria-label="Volumen">
-        </div>
-      </div>
-
-      <ol class="playlist__list" id="playlistList">
-        {% for track in playlist %}
-        <li class="playlist__track" data-index="{{ loop.index0 }}" data-src="{{ track.url }}" data-title="{{ track.title }}" data-artist="{{ track.artist }}">
-          <span class="playlist__track-index">{{ "%02d"|format(loop.index) }}</span>
-          <span class="playlist__track-info">
-            <span class="playlist__track-title">{{ track.title }}</span>
-            <span class="playlist__track-artist">{{ track.artist }}{% if track.note %} — {{ track.note }}{% endif %}</span>
-          </span>
-          <span class="playlist__track-icon" aria-hidden="true">♪</span>
-        </li>
-        {% endfor %}
-      </ol>
-    </div>
+    <ol class="playlist__list" id="playlistList">
+      {% for track in playlist %}
+      <li class="playlist__track" data-index="{{ loop.index0 }}" data-src="{{ track.url }}" data-title="{{ track.title }}" data-artist="{{ track.artist }}">
+        <span class="playlist__track-index">{{ "%02d"|format(loop.index) }}</span>
+        <span class="playlist__track-info">
+          <span class="playlist__track-title">{{ track.title }}</span>
+          <span class="playlist__track-artist">{{ track.artist }}{% if track.note %} — {{ track.note }}{% endif %}</span>
+        </span>
+        <span class="playlist__track-icon" aria-hidden="true">♪</span>
+      </li>
+      {% endfor %}
+    </ol>
     {% else %}
     <p class="gallery__empty">Añade mp3 a <code>backend/static/music</code> y aparecerán aquí.</p>
     {% endif %}

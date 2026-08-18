@@ -3,8 +3,7 @@ Servicio de música: expone las pistas de static/music para el reproductor.
 
 Lee el título y artista reales desde las etiquetas ID3 de cada mp3 (con
 mutagen). Si un archivo no tiene etiquetas legibles, usa el nombre de
-archivo como título de reserva. Para añadir una canción nueva basta con
-copiar el mp3 a backend/static/music/ — aparece sola en la playlist.
+archivo como título de reserva.
 """
 from pathlib import Path
 
@@ -19,7 +18,6 @@ except ImportError:
 
 
 def _read_tags(path: Path) -> tuple[str, str]:
-    """Devuelve (título, artista) desde las etiquetas ID3, con reservas sensatas."""
     fallback_title = path.stem.replace("_", " ").replace("-", " ").title()
 
     if MutagenFile is None:
@@ -37,10 +35,6 @@ def _read_tags(path: Path) -> tuple[str, str]:
 
 
 def get_playlist() -> list[dict]:
-    """
-    Devuelve la lista de pistas disponibles en static/music, ordenadas por título.
-    Cada item: {"slug": str, "title": str, "artist": str, "url": str}
-    """
     music_dir: Path = Config.MUSIC_DIR
     if not music_dir.exists():
         return []

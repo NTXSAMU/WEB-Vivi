@@ -1,5 +1,4 @@
-/* themes.css — tema claro alternativo (día, cálido/crema).
-   theme.js conmuta el atributo data-theme en <html> y lo persiste. */
+/* themes.css — tema claro alternativo (día, cálido/crema). */
 
 [data-theme="light"] {
   --color-bg: #FBF3F0;

@@ -1,4 +1,4 @@
-/* animations.css — keyframes y utilidades de movimiento
+/* animations.css — keyframes y utilidades de movimiento.
    Respeta prefers-reduced-motion (ver reset.css). */
 
 @keyframes pulse {
@@ -43,7 +43,6 @@
   }
 }
 
-/* Utilidad "reveal on scroll": scroll.js añade .is-visible vía IntersectionObserver */
 .reveal-up {
   opacity: 0;
   transform: translateY(24px);

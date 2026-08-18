@@ -49,10 +49,6 @@ p, h1, h2, h3, h4 {
   overflow-wrap: break-word;
 }
 
-#root, #__next {
-  isolation: isolate;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

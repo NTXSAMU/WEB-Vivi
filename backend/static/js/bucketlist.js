@@ -2,9 +2,8 @@
  * bucketlist.js — checklist de "cosas por hacer".
  * Los ítems marcados como cumplidos en content.json (data-official="true")
  * son fijos. Los demás se pueden marcar/desmarcar libremente en el navegador
- * de quien los mire -- se guarda con localStorage, así que es un "check"
- * personal (no cambia el archivo de contenido ni se sincroniza entre
- * dispositivos). Cuando de verdad se cumpla algo, edita content.json.
+ * de quien los mire -- se guarda con localStorage (check personal, no se
+ * sincroniza entre dispositivos ni cambia content.json).
  */
 import { qsa } from './utils.js';
 

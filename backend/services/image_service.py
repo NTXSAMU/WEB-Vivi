@@ -1,9 +1,4 @@
-"""
-Servicio de imágenes: expone las imágenes de static/images para la galería.
-
-De momento la carpeta backend/static/images está vacía (placeholder).
-Cuando añadas fotos/artwork, este servicio las listará automáticamente.
-"""
+"""Servicio de imágenes: expone las imágenes de static/images para "Fotos sueltas"."""
 from pathlib import Path
 
 from config import Config
@@ -12,10 +7,6 @@ from .utils import ALLOWED_IMAGE_EXT
 
 
 def get_gallery_images() -> list[dict]:
-    """
-    Devuelve una lista de imágenes disponibles en static/images para la galería.
-    Cada item: {"filename": str, "url": str}
-    """
     images_dir: Path = Config.IMAGES_DIR
     if not images_dir.exists():
         return []

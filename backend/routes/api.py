@@ -1,9 +1,8 @@
 """
 Endpoints JSON de propósito general.
 
-El contenido (notas, playlist, fotos, etc.) ahora se renderiza directamente
-en el HTML con Jinja2 -- ver routes/home.py -- así que no hace falta ir a
-buscarlo por fetch() desde el JS. Este blueprint se queda solo con un
+El contenido (notas, playlist, fotos, etc.) se renderiza directamente en el
+HTML con Jinja2 -- ver routes/home.py. Este blueprint se queda solo con un
 health-check, útil para comprobar que el backend está vivo.
 """
 from flask import Blueprint, jsonify
