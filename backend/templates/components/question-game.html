@@ -2,15 +2,24 @@
   <div class="section__inner section__inner--narrow section__inner--center">
     <p class="eyebrow">// para seguir descubriéndonos</p>
     <h2 class="section__title">¿Seguimos conociéndonos?</h2>
-    <p class="section__lead">Dale al botón: sale una pregunta al azar. Respóndela tú aquí en tu cabeza, o pregúntamela a mí la próxima vez que nos veamos.</p>
+    <p class="section__lead">
+      Dale al botón: sale una pregunta al azar. Escribemela al ds o en tu cabeza
+      si te da pereza jaja, o pregúntamela a mí la próxima vez que nos veamos.
+    </p>
 
     {% if content.questions %}
-    <script type="application/json" id="questionsData">{{ content.questions | tojson }}</script>
+    <script type="application/json" id="questionsData">
+      {{ content.questions | tojson }}
+    </script>
     <div class="question-game" id="questionGame">
       <div class="question-game__card" id="questionCard">
-        <p class="question-game__text" id="questionText">Dale al botón para la primera pregunta.</p>
+        <p class="question-game__text" id="questionText">
+          Dale al botón para la primera pregunta.
+        </p>
       </div>
-      <button class="btn btn--primary" id="questionShuffle" type="button">Otra pregunta</button>
+      <button class="btn btn--primary" id="questionShuffle" type="button">
+        Otra pregunta
+      </button>
     </div>
     {% endif %}
   </div>

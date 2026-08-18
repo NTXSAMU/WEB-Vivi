@@ -6,8 +6,8 @@
   "gate": {
     "enabled": true,
     "_comentario": "Candado suave de bienvenida, no es seguridad real (cualquiera con conocimientos técnicos podría saltárselo viendo el código fuente). Sirve para que no entre cualquiera que tropiece con el link. Cambia la pregunta y la respuesta por algo vuestro.",
-    "question": "¿En qué mes nos conocimos? (escríbelo en letras, ej: marzo)",
-    "answer": "CAMBIA-ESTO"
+    "question": "¿En qué mes nos conocimos?",
+    "answer": "Agosto"
   },
   "hero": {
     "eyebrow": "// para ti",
@@ -29,9 +29,12 @@
     "body": [
       "Llevo un tiempo dándole vueltas a cómo decirte todo esto, y al final decidí que las palabras sueltas no me bastaban — así que te hice una página entera.",
       "Aquí abajo vas a encontrar las canciones que dices que te recuerdan a mí, cosas que quiero que hagamos juntos, notas random que se me ocurren en momentos random, y un rincón que pienso ir llenando poco a poco con todo lo que me vayas contando de ti.",
-      "Ve explorando con calma. Esto no está terminado a propósito — la idea es que crezca contigo."
+      "Ve explorando con calma. Esto no está terminado a propósito — la idea es que crezca contigo.",
+      "Quiero seguir descubriéndote, y que me sigas descubriendo a mí. Que nos sigamos conociendo, y que nos sigamos queriendo.",
+      "Gracias por ser como eres, y por dejarme ser parte de tu vida.",
+      "Espero que te guste este pequeño detalle y este a la altura de una mujer como tú"
     ],
-    "signature": "Con cariño, (tu nombre aquí)",
+    "signature": "Con cariño, Samuelito",
     "salutation": "Querida Vivi,"
   },
   "songs_intro": "Dices que estas canciones te recuerdan a mí. Aquí están, todas juntas.",
@@ -43,28 +46,25 @@
     {
       "type": "sentimiento",
       "mood": "ternura",
-      "text": "(placeholder) Hay días que pienso en ti y no sé si es alegría, nervios o las dos cosas a la vez. Cambia esto por eso que sientes y no siempre dices en voz alta."
+      "text": "Hay días que pienso en ti y no sé si es alegría, nervios o las dos cosas a la vez. Es como un cosquilleo que me hace sonreír sin darme cuenta."
     },
     {
       "type": "sentimiento",
       "mood": "nostalgia",
-      "text": "(placeholder) A veces me acuerdo de algo random que dijiste hace tiempo y se me queda la sonrisa tonta un rato. Escribe aquí uno de esos recuerdos."
+      "text": "A veces me acuerdo de algo random que dijiste hace tiempo y se me queda la sonrisa tonta un rato. Cada vez que lo recuerdo me doy cuenta de que me gusta más de lo que pensaba. Y cada momento por ínfimo que sea marca huella en mi vida."
     },
     {
       "type": "nota",
-      "text": "(placeholder) Una nota rápida, de esas que mandarías sin razón aparente solo porque te acordaste de algo."
+      "text": "Eres lo mejor que me ha pasado, y no lo digo a la ligera. Gracias por ser como eres."
     },
     {
       "type": "nota",
-      "text": "(placeholder) Otra notita corta. Estas son ideales para cosas pequeñas del día a día."
+      "text": "Aunque halla habido tiempos difíciles, me alegro de que sigamos juntos. Gracias por no rendirte y creer en nosotros."
     },
     {
       "type": "carta",
-      "text": "(placeholder) Aquí puedes pegar una carta más larga, de esas que se escriben cuando hay más que decir de lo que cabe en un mensaje de texto."
-    },
-    {
-      "type": "carta",
-      "text": "(placeholder) Otra carta, para otro momento. No hace falta que todas pesen lo mismo — algunas pueden ser ligeras."
+      "text": "Mi amor,\n\nA veces siento que las palabras se quedan pequeñas para explicar todo lo que siento por ti. Desde que llegaste a mi vida, muchas cosas cambiaron, pero sobre todo cambió mi forma de entender el amor. Contigo descubrí que amar no es solamente decir “te quiero”, sino querer compartir cada momento, cada sueño, cada risa y también cada dificultad.\n\nEres esa persona que consigue hacer mis días más bonitos simplemente estando a mi lado. Me encanta tu forma de ser, tus pequeños detalles, tus sonrisas y hasta esas pequeñas cosas que quizá tú no valoras, pero que para mí te hacen única.\n\nQuiero que sepas que te elegiría una y otra vez, en cualquier vida, en cualquier lugar y en cualquier momento. Porque si hay algo que tengo claro es que quiero seguir construyendo recuerdos contigo, vivir aventuras, superar obstáculos y disfrutar de todas esas pequeñas cosas que hacen que la vida merezca la pena.\n\nGracias por cada abrazo, cada palabra, cada mirada y cada instante que me has regalado. Gracias por ser tú y por dejarme formar parte de tu vida.\n\nTe quiero más de lo que muchas veces sé explicar, y espero poder demostrártelo cada día. Porque eres, sin duda, el amor de mi vida, mi persona favorita y alguien a quien quiero tener siempre a mi lado. ❤️\n\nTe quiero hoy, mañana y todos los días que nos queden por vivir."
+
     }
   ],
   "bucket_list": [
@@ -81,7 +81,7 @@
     {
       "text": "Cocinar algo random sin receta y que salga fatal",
       "done": false,
-      "when": "este año"
+      "when": "este año si dios quiere"
     },
     {
       "text": "Un fin de semana sin plan cerrado, a ver qué sale",
@@ -89,14 +89,14 @@
       "when": "algún día"
     },
     {
-      "text": "Ir a un concierto de alguna canción de la playlist",
+      "text": "Ir a un concierto juntos",
       "done": false,
-      "when": "algún día"
+      "when": "Dentro de nah"
     },
     {
-      "text": "(añade aquí vuestro próximo plan)",
+      "text": "Seguire expandiendo esto con el tiempo",
       "done": false,
-      "when": "cuando sea"
+      "when": "Una vida entera contigo"
     }
   ],
   "likes": [
@@ -104,64 +104,57 @@
       "category": "Comida",
       "icon": "🍰",
       "items": [
-        "(su postre favorito va aquí)",
-        "(ese plato que pide siempre)",
-        "(algo que odia que le pongan en el plato)"
+        "Kinder pero el de los niños jajaja"
       ]
     },
     {
       "category": "Joyería",
       "icon": "💍",
       "items": [
-        "(estilo que le gusta: fino, llamativo...)",
-        "(metal favorito: oro, plata...)",
-        "(alguna pieza que ha mirado y no se ha comprado)"
+        "Estilo que le gusta: fino",
+        "Metal favorito: plata",
+        "Tengo varias vistas 😉 al igual que charms"
       ]
     },
     {
       "category": "Sitios",
       "icon": "📍",
       "items": [
-        "(un sitio al que quiere volver)",
-        "(un sitio al que quiere ir por primera vez)"
+        "Aqui rellenaremos lo vivido mi vida"
       ]
     },
     {
       "category": "Planes",
       "icon": "🎯",
       "items": [
-        "(su plan perfecto de sábado)",
-        "(algo que siempre dice que quiere hacer 'algún día')"
+        "Jugar a duels e insultar panchis"
       ]
     },
     {
       "category": "Series y películas",
       "icon": "🎬",
       "items": [
-        "(la serie que se ha visto entera dos veces)",
-        "(esa que le da vergüenza admitir que le gusta)"
       ]
     },
     {
       "category": "Colores",
       "icon": "🎨",
       "items": [
-        "(su color favorito)",
-        "(el color que más lleva puesto)"
+    
       ]
     }
   ],
   "memories": [
     {
-      "date": "(fecha o 'un día random')",
-      "title": "(título de este recuerdo)",
-      "text": "Cuenta aquí qué pasó, cómo fue el día, qué recuerdas exactamente. Añade más entradas como esta a medida que os pasen cosas.",
+      "date": "(-)",
+      "title": "(-)",
+      "text": "-",
       "image": null
     },
     {
-      "date": "(fecha o 'un día random')",
-      "title": "(otro recuerdo)",
-      "text": "Este es el sitio para las cosas pequeñas también, no hace falta que sean días 'importantes'.",
+      "date": "(-)",
+      "title": "(-)",
+      "text": "-",
       "image": null
     }
   ],
@@ -174,113 +167,112 @@
     "¿Qué es algo pequeño que hago que te gusta más de lo que crees que sé?",
     "¿Hay un sitio al que quieras que vayamos juntos algún día?",
     "¿Qué canción pondrías si tuvieras que resumir cómo te sientes hoy?",
-    "¿Cuál ha sido el mejor plan random que hemos hecho sin planearlo?",
     "Si esta página tuviera una sección más, ¿cuál te gustaría que añadiera?"
   ],
   "footer": {
     "text": "Hecha con calma, para ti.",
-    "signature": "— (tu nombre aquí)"
+    "signature": "Samuelito el amor de tu vida"
   },
   "reasons": [
-    "Por cómo te ríes de tus propios chistes antes de terminar de contarlos.",
-    "Porque tienes la rara habilidad de hacer que un día random se sienta especial.",
-    "Por la forma en que frunces el ceño cuando te concentras en algo, sin darte cuenta.",
-    "Porque me escuchas de verdad, no solo esperas tu turno para hablar.",
-    "Por tu manera de defender a quien quieres, sin pensarlo dos veces.",
-    "Porque tienes buen gusto hasta para las cosas más tontas.",
-    "Por cómo cambias de humor a mejor en cuanto suena tu canción favorita.",
-    "Porque eres de las pocas personas que cumple lo que promete.",
-    "Por tu paciencia, que parece infinita incluso cuando no debería serlo.",
-    "Porque cuando algo te hace ilusión, se te nota en la cara antes de decirlo.",
-    "Por la forma en que cuidas los detalles que a otros ni se les ocurren.",
-    "Porque me haces querer ser mejor persona sin que tengas que pedírmelo.",
-    "Por tu risa floja, la que te sale cuando menos te lo esperas.",
-    "Porque tienes una opinión sobre todo, y normalmente tienes razón.",
-    "Por cómo te emocionas contando algo que te importa, aunque sea pequeño.",
-    "Porque eres capaz de convertir un mal día en una anécdota graciosa.",
-    "Por tu forma de abrazar, que dice más que cualquier palabra.",
-    "Porque no te da miedo pedir perdón cuando te equivocas.",
-    "Por la manera en que te acuerdas de cosas que dije hace meses.",
-    "Porque tienes una curiosidad que no se apaga nunca.",
-    "Por cómo cuidas a la gente que quieres sin que casi se note el esfuerzo.",
-    "Porque me haces sentir en casa incluso en sitios nuevos.",
-    "Por tu terquedad, que casi siempre esconde algo que vale la pena.",
-    "Porque sabes cuándo hablar y cuándo simplemente quedarte.",
-    "Por la forma en que te emocionas con las cosas pequeñas.",
-    "Porque me calmas sin siquiera intentarlo.",
-    "Por tu manera de reírte hasta que se te saltan las lágrimas.",
-    "Porque cuando dudo de mí, tú no dudas ni un segundo.",
-    "Por cómo te tomas en serio las cosas que de verdad importan.",
-    "Porque tienes un sentido del humor que solo tú tienes.",
-    "Por la forma en que me miras cuando crees que no me doy cuenta.",
-    "Porque haces que las conversaciones largas se sientan cortas.",
-    "Por tu manera de ser honesta, incluso cuando es incómodo.",
-    "Porque siempre encuentras la forma de hacerme reír en mal momento.",
-    "Por cómo te esfuerzas por las personas que te importan, sin que te lo pidan.",
-    "Porque contigo hasta el silencio es cómodo.",
-    "Por tu manera de soñar en grande sin dejar de tener los pies en la tierra.",
-    "Porque nunca dejas de sorprenderme, incluso después de todo este tiempo.",
-    "Por cómo te enfadas por injusticias que no son ni tuyas.",
-    "Porque tienes una manera de animar a la gente que parece un don.",
-    "Por tu costumbre de tararear canciones sin darte cuenta.",
-    "Porque me haces sentir que puedo contarte cualquier cosa.",
-    "Por la forma en que celebras hasta las victorias pequeñas de los demás.",
-    "Porque eres la persona más leal que conozco.",
-    "Por cómo te ilusionas planeando cosas, aunque sean pequeñas.",
-    "Porque sabes perdonar sin guardar rencor de verdad.",
-    "Por tu forma de ser tú misma sin pedir permiso.",
-    "Porque cuando algo te importa, se te nota en cómo lo cuidas.",
-    "Por la manera en que discutimos y siempre encontramos la vuelta.",
-    "Porque me haces mejor solo con estar cerca.",
-    "Por tu sonrisa, sobre todo la que no puedes controlar.",
-    "Porque tienes una fuerza que muchas veces ni tú misma ves.",
-    "Por cómo te preocupas por la gente incluso cuando tú también la estás pasando mal.",
-    "Porque contigo aprendí a disfrutar más las cosas simples.",
-    "Por tu forma de escuchar música con los ojos cerrados.",
-    "Porque siempre sabes qué decir para que me sienta mejor.",
-    "Por tu manera de hacer que cualquier plan improvisado salga bien.",
-    "Porque tu forma de querer no pone condiciones.",
-    "Por cómo te emocionas viendo crecer a la gente que quieres.",
-    "Porque me retas a pensar diferente, y eso me gusta.",
-    "Por tu paciencia conmigo en mis días difíciles.",
-    "Porque tienes una manera de hacer que me sienta escuchado de verdad.",
-    "Por cómo te ríes de ti misma sin dejar de tomarte en serio lo importante.",
-    "Porque contigo el tiempo pasa distinto, mejor.",
-    "Por tu forma de mirar los detalles que nadie más nota.",
-    "Porque tienes una calidez que se nota en cómo tratas a los demás.",
-    "Por cómo defiendes tus ideas sin dejar de escuchar las de los demás.",
-    "Porque eres capaz de hacer que confíe en el futuro solo con estar ahí.",
-    "Por tu manera de cuidar los pequeños rituales que tenemos.",
-    "Porque sabes cuándo necesito espacio y cuándo necesito compañía.",
-    "Por tu forma de emocionarte con las películas, aunque las hayas visto mil veces.",
-    "Porque tienes una manera de hacerme sentir importante sin esfuerzo.",
-    "Por cómo te tomas tus sueños en serio, aunque el camino sea largo.",
-    "Porque me haces reír incluso cuando no tengo ganas de reírme.",
-    "Por tu forma de decir las cosas tal como las piensas.",
-    "Porque cuando algo te duele, no lo escondes por orgullo.",
-    "Por tu manera de hacer que cualquier lugar contigo se sienta especial.",
-    "Porque tienes una energía que contagia hasta en los días grises.",
-    "Por cómo cuidas los detalles cuando organizas algo para alguien.",
-    "Porque nunca dejas de intentarlo, aunque las cosas se pongan difíciles.",
-    "Por tu forma de mirarme cuando hablo de algo que me apasiona.",
-    "Porque tienes un instinto que casi nunca falla.",
-    "Por cómo te emocionas con la comida que de verdad te gusta.",
-    "Porque me haces querer construir un futuro contigo, no solo imaginarlo.",
-    "Por tu manera de hacer que discutir no se sienta como una guerra.",
-    "Porque tienes una forma de amar que es paciente sin ser pasiva.",
-    "Por cómo te esfuerzas en las cosas que te importan de verdad.",
-    "Porque me enseñaste a no tenerle tanto miedo a equivocarme.",
-    "Por tu forma de reírte de las cosas más absurdas conmigo.",
-    "Porque contigo hasta los planes más simples se vuelven mis favoritos.",
-    "Por cómo te acuerdas de las cosas pequeñas que me hacen ilusión.",
-    "Porque tienes una manera de hacer que me sienta en paz.",
-    "Por tu forma de ser fuerte sin dejar de ser tierna.",
-    "Porque me haces sentir que no tengo que fingir nada contigo.",
-    "Por cómo te emocionas planeando el futuro, aunque sea a lo tonto.",
-    "Porque eres la primera persona en la que pienso cuando pasa algo bueno.",
-    "Por tu manera de quererme incluso en mis peores días.",
-    "Porque cada día contigo se siente como una razón más para esta lista.",
-    "Por todas las razones que todavía no he escrito aquí, y que voy a seguir descubriendo.",
-    "Porque simplemente eres tú — y eso ya lo explica casi todo."
+    "Por tu risa, la que me hace sonreír incluso en los días grises.",
+"Porque tienes la rara habilidad de hacer que un día random se sienta especial.",
+"Por tus gestos, que dicen más de ti que cualquier palabra.",
+"Porque me escuchas de verdad, no solo esperas tu turno para hablar.",
+"Por tu manera de defender a quien quieres, sin pensarlo dos veces.",
+"Porque tienes buen gusto hasta para las cosas más tontas.",
+"Por cómo cambias de humor a mejor en cuanto suena tu canción favorita.",
+"Porque eres de las pocas personas que cumple lo que promete.",
+"Por tu paciencia, que parece infinita incluso cuando no debería serlo.",
+"Porque cuando algo te hace ilusión, se te nota en la cara antes de decirlo.",
+"Por la forma en que cuidas los detalles que a otros ni se les ocurren.",
+"Porque me haces querer ser mejor persona sin que tengas que pedírmelo.",
+"Por tu risa floja, la que te sale cuando menos te lo esperas.",
+"Por cómo te emocionas contando algo que te importa, aunque sea pequeño.",
+"Porque eres capaz de convertir un mal día en una anécdota graciosa.",
+"Porque no te da miedo pedir perdón cuando te equivocas.",
+"Por la manera en que te acuerdas de cosas que dije hace meses.",
+"Por cómo cuidas a la gente que quieres sin esperar nada a cambio.",
+"Porque haces que me sienta en casa incluso cuando estamos lejos.",
+"Por tu terquedad, que casi siempre esconde algo que vale la pena.",
+"Porque sabes cuándo hablar y cuándo simplemente quedarte.",
+"Por la forma en que te emocionas con las cosas pequeñas.",
+"Porque me calmas sin siquiera intentarlo.",
+"Por tu manera de reírte hasta que se te saltan las lágrimas.",
+"Porque cuando dudo de mí, tú no dudas ni un segundo.",
+"Por cómo te tomas en serio las cosas que de verdad importan.",
+"Porque tienes un sentido del humor que solo tú tienes.",
+"Por la forma en que me miras cuando crees que no me doy cuenta.",
+"Porque haces que las conversaciones largas se sientan cortas.",
+"Por tu manera de ser honesta, incluso cuando es incómodo.",
+"Porque siempre encuentras la forma de hacerme reír en mal momento.",
+"Por cómo te esfuerzas por las personas que te importan, sin que te lo pidan.",
+"Porque contigo hasta una conversación sobre cualquier tontería puede sentirse especial.",
+"Por tu manera de soñar en grande sin dejar de tener los pies en la tierra.",
+"Porque nunca dejas de sorprenderme, incluso después de todo este tiempo.",
+"Por cómo te enfadas por injusticias que no son ni tuyas.",
+"Porque tienes una manera de animar a la gente que parece un don.",
+"Por tu costumbre de tararear canciones sin darte cuenta.",
+"Porque me haces sentir que puedo contarte cualquier cosa.",
+"Por la forma en que celebras hasta las victorias pequeñas de los demás.",
+"Porque eres una de las personas más leales que conozco.",
+"Por cómo te ilusionas planeando cosas, aunque sean pequeñas.",
+"Porque sabes perdonar sin guardar rencor de verdad.",
+"Por tu forma de ser tú misma sin pedir permiso.",
+"Porque cuando algo te importa, se te nota en cómo lo cuidas.",
+"Por la manera en que discutimos y siempre encontramos la vuelta.",
+"Porque incluso desde lejos consigues hacerme sentir acompañado.",
+"Por tu sonrisa, sobre todo la que no puedes controlar.",
+"Porque tienes una fuerza que muchas veces ni tú misma ves.",
+"Por cómo te preocupas por la gente incluso cuando tú también lo estás pasando mal.",
+"Porque contigo aprendí a disfrutar más las cosas simples.",
+"Por tu forma de escuchar música con los ojos cerrados.",
+"Porque siempre sabes qué decir para que me sienta mejor.",
+"Por tu manera de hacer que cualquier plan, por pequeño que sea, parezca una buena idea.",
+"Porque tu forma de querer no pone condiciones.",
+"Por cómo te emocionas viendo crecer a la gente que quieres.",
+"Porque me retas a pensar diferente, y eso me gusta.",
+"Por tu paciencia conmigo en mis días difíciles.",
+"Porque tienes una manera de hacer que me sienta escuchado de verdad.",
+"Por cómo te ríes de ti misma sin dejar de tomarte en serio lo importante.",
+"Porque contigo el tiempo pasa distinto, mejor.",
+"Por tu forma de fijarte en los detalles que nadie más nota.",
+"Porque tienes una calidez que se nota en cómo tratas a los demás.",
+"Por cómo defiendes tus ideas sin dejar de escuchar las de los demás.",
+"Porque eres capaz de hacer que confíe en el futuro solo con tus palabras.",
+"Por tu manera de cuidar los pequeños detalles que compartimos.",
+"Porque sabes cuándo necesito espacio y cuándo necesito compañía.",
+"Por tu forma de emocionarte con las películas, aunque las hayas visto mil veces.",
+"Porque tienes una manera de hacerme sentir importante sin esfuerzo.",
+"Por cómo te tomas tus sueños en serio, aunque el camino sea largo.",
+"Porque me haces reír incluso cuando no tengo ganas de reírme.",
+"Por tu forma de decir las cosas tal como las piensas.",
+"Porque cuando algo te duele, no lo escondes por orgullo.",
+"Por tu manera de hacer que cualquier conversación contigo se sienta especial.",
+"Porque tienes una energía que contagia hasta en los días grises.",
+"Por cómo cuidas los detalles cuando haces algo pensando en alguien.",
+"Porque nunca dejas de intentarlo, aunque las cosas se pongan difíciles.",
+"Por tu forma de mirarme cuando hablo de algo que me apasiona.",
+"Porque tienes un instinto que casi nunca falla.",
+"Por cómo te emocionas con la comida que de verdad te gusta.",
+"Porque me haces querer compartir un futuro contigo, no solo imaginarlo.",
+"Por tu manera de hacer que discutir no se sienta como una guerra.",
+"Porque tienes una forma de amar que es paciente sin ser pasiva.",
+"Por cómo te esfuerzas en las cosas que te importan de verdad.",
+"Porque me enseñaste a no tenerle tanto miedo a equivocarme.",
+"Por tu forma de reírte de las cosas más absurdas conmigo.",
+"Porque contigo hasta los planes más simples se vuelven mis favoritos.",
+"Por cómo te acuerdas de las cosas pequeñas que me hacen ilusión.",
+"Porque tienes una manera de hacer que me sienta en paz.",
+"Por tu forma de ser fuerte sin dejar de ser tierna.",
+"Porque me haces sentir que no tengo que fingir nada contigo.",
+"Por cómo te emocionas planeando el futuro, aunque sea a lo tonto.",
+"Porque eres la primera persona en la que pienso cuando pasa algo bueno.",
+"Por tu manera de quererme incluso en mis peores días.",
+"Porque cada día contigo se siente como una razón más para esta lista.",
+"Por todas las razones que todavía no he escrito aquí, y que voy a seguir descubriendo.",
+"Porque incluso en los días en los que no hablamos tanto, sigues estando presente en mis pensamientos.",
+"Porque consigues hacerme ilusión hasta con las cosas más pequeñas que compartimos.",
+"Porque me encanta descubrir cada día una parte nueva de ti.",
+"Porque simplemente eres tú — y eso ya lo explica casi todo."
   ]
 }

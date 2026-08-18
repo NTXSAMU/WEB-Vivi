@@ -4,16 +4,19 @@
     <h2 class="section__title">Fotos sueltas</h2>
 
     <div class="gallery__grid reveal-up" id="galleryGrid">
-      {% if photos %}
-        {% for photo in photos %}
-        <button class="gallery__item lightbox-trigger" type="button" data-full="{{ photo.url }}">
-          <img src="{{ photo.url }}" alt="{{ photo.filename }}" loading="lazy">
-        </button>
-        {% endfor %}
-      {% else %}
-        <p class="gallery__empty">
-          Añade fotos en <code>backend/static/images</code> y aparecerán aquí solas.
-        </p>
+      {% if photos %} {% for photo in photos %}
+      <button
+        class="gallery__item lightbox-trigger"
+        type="button"
+        data-full="{{ photo.url }}"
+      >
+        <img src="{{ photo.url }}" alt="{{ photo.filename }}" loading="lazy" />
+      </button>
+      {% endfor %} {% else %}
+      <p class="gallery__empty">
+        No hay fotos todavía, pero puedes añadirlas en la sección de
+        <a href="/admin">administración</a>.
+      </p>
       {% endif %}
     </div>
   </div>
